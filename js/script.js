@@ -1,22 +1,10 @@
-
-$(document).ready(function() {
-    
-    $("#add_new").height($(document).height());
-    
-    $("#add_new").click(newNote);
-    newNote();
-    
-    return false;
-});
-
-
-// JavaScript Document
+// // JavaScript Document
 $(function(){
     var zoom = new ZoomView('#zoom','#zoom :first');
     });
-	
-	var zIndexBackup = 10;
-	
+  
+  var zIndexBackup = 10;
+  
     function DragView(target) {
       this.target = target[0];
       this.drag = [];
@@ -50,23 +38,23 @@ $(function(){
         var touches = event.originalEvent.touches || [event.originalEvent];
         for(var t=0; t<touches.length; t++) {
           var el = touches[t].target.parentNode;
-		  
-		  if(el.className.search('polaroid') > -1){
-			  	
-				 el = touches[t].target.parentNode.parentNode;
-		  }
-			el.style.zIndex = zIndexBackup + 1;
-			zIndexBackup = zIndexBackup +1;
-			
+      
+      if(el.className.search('polaroid') > -1){
+          
+         el = touches[t].target.parentNode.parentNode;
+      }
+      el.style.zIndex = zIndexBackup + 1;
+      zIndexBackup = zIndexBackup +1;
+      
           if(el && el == this.target) {
-			$(el).children().toggleClass('upSky');
+      $(el).children().toggleClass('upSky');
             this.lastDrag = {
               el: el,
               pos: event.touches[t]
             };
             return; 
           }
-		  
+      
         }
       }
 
@@ -76,10 +64,10 @@ $(function(){
         for(var t=0; t<touches.length; t++) {
           var el = touches[t].target.parentNode;
 
-		if(el.className.search('polaroid') > -1){
-				 el = touches[t].target.parentNode.parentNode;
-		  }
-		  
+    if(el.className.search('polaroid') > -1){
+         el = touches[t].target.parentNode.parentNode;
+      }
+      
           if(el && el == this.target) {
             this.drag.push({
               el: el,
@@ -90,17 +78,17 @@ $(function(){
       }
 
       this.OnDragEnd = function(event) {
-		  	this.drag = [];
-        	var touches = event.originalEvent.touches || [event.originalEvent];
-		 	for(var t=0; t<touches.length; t++) {
-          			var el = touches[t].target.parentNode;
-		  
-		  			if(el.className.search('polaroid') > -1){
-				 			el = touches[t].target.parentNode.parentNode;
-		  			}
-					$(el).children().toggleClass('upSky');
-			
-		    }
+        this.drag = [];
+          var touches = event.originalEvent.touches || [event.originalEvent];
+      for(var t=0; t<touches.length; t++) {
+                var el = touches[t].target.parentNode;
+      
+            if(el.className.search('polaroid') > -1){
+              el = touches[t].target.parentNode.parentNode;
+            }
+          $(el).children().toggleClass('upSky');
+      
+        }
       }
 
 
@@ -175,7 +163,7 @@ $(function(){
 
         container.bind("transform", function(event) {
             scaleFactor = previousScaleFactor * event.scale;
-			
+      
             scaleFactor = Math.max(MIN_ZOOM, Math.min(scaleFactor, MAX_ZOOM));
             transform(event);
         });
@@ -211,12 +199,22 @@ $(function(){
 
             
         }
-		
-		
+    
+    
 
     }
-	
-var noteTemp =  '<div class="note">'
+
+$(document).ready(function() {
+    
+    $("#add_new").height($(document).height());
+    
+    $("#add_new").click(newNote);
+    newNote();
+    
+    return false;
+});
+  
+var noteTemp =  '<div class="note animate bounceIn">'
       +'<textarea class="cnt" placeholder="Enter note here"></textarea>'
       +'</div>';
 
@@ -237,12 +235,3 @@ function deleteNote(){
   $('.cnt')
   return false; 
 };
-
-
-
-	
-
-var zoom = document.getElementById('#zoom');
-Hammer(zoom).on("swipe", function(e){
-  deleteNote();
-});
