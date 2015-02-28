@@ -1,23 +1,3 @@
-var noteTemp =  '<div class="note">'
-			+'<textarea class="cnt" placeholder="Enter note here"></textarea>'
-			+'</div>';
-
-var noteZindex = 10;
-
-function newNote() {
-  $(noteTemp).hide().appendTo("#add_new").show("fade", 300).draggable().on('dragstart',
-    function(){
-       $(this).zIndex(++noteZindex);
-    });
- 
-	$('.remove').click(deleteNote);
-	$('textarea').autogrow();
-	
-  $('.cnt')
-	return false; 
-};
-
-
 
 $(document).ready(function() {
     
@@ -25,7 +5,7 @@ $(document).ready(function() {
     
     $("#add_new").click(newNote);
     newNote();
-	  
+    
     return false;
 });
 
@@ -120,8 +100,10 @@ $(function(){
 		  			}
 					$(el).children().toggleClass('upSky');
 			
-		  }
+		    }
       }
+
+
     }
 
 
@@ -234,6 +216,33 @@ $(function(){
 
     }
 	
+var noteTemp =  '<div class="note">'
+      +'<textarea class="cnt" placeholder="Enter note here"></textarea>'
+      +'</div>';
+
+var noteZindex = 10;
+
+function newNote() {
+  $(noteTemp).hide().appendTo("#add_new").show("fade", 300).draggable().on('dragstart',
+    function(){
+       $(this).zIndex(++noteZindex);
+    });
+
+function deleteNote(){
+    $(this).parent('.note').hide("puff",{ percent: 133}, 250);
+};
+
+  $('textarea').autogrow();
+  
+  $('.cnt')
+  return false; 
+};
+
+
 
 	
 
+var zoom = document.getElementById('#zoom');
+Hammer(zoom).on("swipe", function(e){
+  deleteNote();
+});
