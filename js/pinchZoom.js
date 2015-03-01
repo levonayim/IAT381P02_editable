@@ -1,6 +1,6 @@
 // JavaScript Document
 $(function(){
-    var zoom = new ZoomView('.note','.note :first');
+    var zoom = new ZoomView('#zoom','#zoom :first');
     });
   
   var zIndexBackup = 10;
