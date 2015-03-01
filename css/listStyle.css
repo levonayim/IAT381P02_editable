@@ -1,0 +1,174 @@
+/* * Hide from both screenreaders and browsers: h5bp.com/u */
+.hidden {
+	display: none !important;
+	visibility: hidden;
+}
+
+/* * Hide only visually, but have it available for screenreaders: h5bp.com/v */
+.visuallyhidden {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+
+/* * Extends the .visuallyhidden class to allow the element to be focusable * when navigated to via the keyadd_new: h5bp.com/p */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+	clip: auto;
+	height: auto;
+	margin: 0;
+	overflow: visible;
+	position: static;
+	width: auto;
+} /* * Hide visually and from screenreaders, but maintain layout */
+
+.invisible {
+	visibility: hidden;
+}
+
+.clearfix:before,
+.clearfix:after {
+	content: " "; /* 1 */
+	display: table; /* 2 */
+}
+
+.clearfix:after {
+	clear: both;
+}
+.noflick {
+	perspective: 1000;
+	backface-visibility: hidden;
+	transform: translate3d(0,0,0);
+}
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-image: url('../img/grid.png'); 
+	font-size: 1em;
+	line-height: 1;
+}
+
+::selection {
+	background: #B3D4FC;
+	text-shadow: none;
+}
+a:focus {
+	outline: none;
+}
+::-webkit-input-placeholder {
+	color: rgba(0,0,0,.7);
+}
+
+:placeholder {
+	color: rgba(0,0,0,.7);
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+
+/* Button style  */
+
+h3{
+	font-family: "Gloria Hallelujah", cursive;
+	text-decoration:none;
+	color:darkgrey;
+	margin:20px;
+	padding:0;
+	font-size:1em;
+}
+
+.upSky{
+  background: #FFFFFF;
+  
+}
+
+.zoomwrapper {
+	margin-left:auto;
+	margin-right:auto;
+    overflow: hidden;
+}
+
+
+.button {
+	width:100%;
+	text-align:center;
+	text-decoration: none;
+	transition: transform .150s, background .01s;
+	@extend .noflick;
+
+}
+
+#add_new {
+	margin:auto;
+
+	text-align:center;
+	text-decoration:none;
+}
+
+
+
+#board {
+	text-decoration:none;
+	margin-top: 40px;
+	overflow-y: visible;
+	@extend .noflick;
+}
+
+.note {
+	display: inline-block;
+	position: relative;
+	padding: 1em;
+	min-height: 160px;
+	margin: 0 30px 30px 30px;
+	background-color: #FFFFFF;
+	box-shadow: 5px 5px 10px -2px rgba(33,33,33,.3);
+	transition: transform .15s;
+	z-index: 1;
+	@extend .noflick;
+
+
+	&.ui-draggable-dragging:nth-child(n) {
+		box-shadow: 5px 5px 15px 0 rgba(0,0,0,.3);
+		transform: scale(1.125) !important;
+		z-index: 100;
+		transition: transform .150s;
+	}
+}
+
+textarea {
+	background-color: transparent;
+	border: none;
+	resize: both;
+	font-family: "Gloria Hallelujah", cursive;
+	width: 100%;
+	height:160px;
+	padding: 5px;
+	&:focus {
+		outline: none;
+		border: none;
+	}
+	&.cnt {
+		min-height: 200px;
+	}
+	
+	&.note_cnt{
+		height:160px;
+	}
+}
+
+.bounceInLeft {
+	-webkit-animation-name: none; 
+}
