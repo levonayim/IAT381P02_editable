@@ -1,6 +1,6 @@
 // JavaScript Document
 $(function(){
-    var zoom = new ZoomView('#zoom','#zoom :first');
+    var add_new = new add_newView('#add_new','#add_new :first');
     });
   
   var zIndexBackup = 10;
@@ -95,7 +95,7 @@ $(function(){
     }
 
 
-    function ZoomView(container, element) {
+    function add_newView(container, element) {
 
         container = $(container).hammer({
             prevent_default: true,
@@ -109,9 +109,9 @@ $(function(){
         var displayWidth = container.width();
         var displayHeight = container.height();
 
-        //These two constants specify the minimum and maximum zoom
-        var MIN_ZOOM = 1;
-        var MAX_ZOOM = 2;
+        //These two constants specify the minimum and maximum add_new
+        var MIN_add_new = 1;
+        var MAX_add_new = 2;
 
         var scaleFactor = 1;
         var previousScaleFactor = 1;
@@ -164,7 +164,7 @@ $(function(){
         container.bind("transform", function(event) {
             scaleFactor = previousScaleFactor * event.scale;
       
-            scaleFactor = Math.max(MIN_ZOOM, Math.min(scaleFactor, MAX_ZOOM));
+            scaleFactor = Math.max(MIN_add_new, Math.min(scaleFactor, MAX_add_new));
             transform(event);
         });
 
