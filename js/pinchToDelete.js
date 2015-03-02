@@ -30,7 +30,7 @@ function gestureChange( e ) {
 
 function gestureEnd( e ) {
     e.preventDefault();
-    $(this).parent('.note').remove( ".note" );
+    $(this).parent('.note').remove( "#board" );
 }
 
 Hammer( add_new ).on( 'pinch', gestureChange );
