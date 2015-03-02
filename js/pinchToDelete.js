@@ -30,8 +30,7 @@ function gestureChange( e ) {
 
 function gestureEnd( e ) {
     e.preventDefault();
-    
-    $(this).parent('.note').hide("puff",{ percent: 133}, 250);
+    $(this).parent('.note').remove( ".note" );
 }
 
 Hammer( add_new ).on( 'pinch', gestureChange );
