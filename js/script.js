@@ -11,6 +11,7 @@ function newNote() {
     function(){
        $(this).zIndex(++noteZindex);
     });
+
  
 	$('textarea').autogrow();
 	

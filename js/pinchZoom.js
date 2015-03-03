@@ -1,6 +1,6 @@
 // JavaScript Document
 $(function(){
-    var board = new boardView('#board','#board :first');
+    var board = new boardView('.note','.note :first');
     });
   
   var zIndexBackup = 10;
